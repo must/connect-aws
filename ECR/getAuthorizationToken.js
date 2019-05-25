@@ -8,7 +8,7 @@
 
 const platform = require('connect-platform');
 
-const pgPool = require('./connection');
+const ecr = require('../connection');
 
 /**
  *
@@ -21,7 +21,7 @@ platform.core.node({
    * it should be accessible via '/test-package/hellow'
    *
    */
-  path: '/connect-postgres/query',
+  path: '/connect-aws/ECR/getAuthorizationToken',
 
   /**
    *
@@ -47,7 +47,7 @@ platform.core.node({
    * a name we want to say 'hellow' to.
    *
    */
-  inputs: ['query'],
+  inputs: ['params'],
 
   /**
    *
@@ -58,7 +58,7 @@ platform.core.node({
    * our 'hellow' message will be the output.
    *
    */
-  outputs: ['result'],
+  outputs: ['authorizationData'],
 
   /**
    *
@@ -85,7 +85,7 @@ platform.core.node({
      * this is the description of the node in general.
      *
      */
-    node: 'Executes <span class="hl-blue">query</span>. Check node-postgres package documentation.',
+    node: 'Gets an authorization tocken using the optional <span class="hl-blue">params</span>.',
 
     /**
      *
@@ -93,7 +93,7 @@ platform.core.node({
      *
      */
     inputs: {
-      query: 'the query that shall be executed.',
+      params: 'the parameters as an object which includes optionally a registeryIds field.',
     },
 
     /**
@@ -102,7 +102,7 @@ platform.core.node({
      *
      */
     outputs: {
-      result: 'the returned result object for the <span class="hl-blue">query</span>.'
+      authorizationData: 'the returned result object for the <span class="hl-blue">query</span>.'
     },
 
     /**
@@ -111,7 +111,7 @@ platform.core.node({
      *
      */
     controlOutputs: {
-      error: 'This signals that something bad happened with the <span class="hl-blue">query</span>.'
+      error: 'This signals that something bad happened with the <span class="hl-blue">request</span>.'
     }
   }
 },
@@ -128,12 +128,13 @@ platform.core.node({
    *
    */
   (inputs, output, control) => {
-    // promise
-    pgPool.query(inputs.query)
-      .then(res => output('result', res))
-      .catch(e => {
-        console.error(e.stack)
+    ecr.getAuthorizationToken(inputs.params, function(err, data) {
+      if (err) {
+        console.log(err, err.stack); // an error occurred
         control('error');
-      })
+      } else {
+        output('authorizationData', data.authorizationData);           // successful response
+      }
+    });
   }
 );

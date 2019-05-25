@@ -1,8 +1,18 @@
 const platform = require('connect-platform');
-const { Pool } = require('pg')
+const AWS = require('aws-sdk');
 
-let options = platform.config.get('postgres', {});
+let options = platform.config.get('aws', {});
 
-const pgPool = new Pool(options);
+let credentials = new AWS.Credentials(options.credentials);
 
-module.exports = pgPool
+console.log({
+  credentials: credentials, region: options.region
+});
+
+AWS.config = new AWS.Config({
+  credentials: credentials, region: options.region
+});
+
+let ecr = new AWS.ECR({apiVersion: '2015-09-21'});
+
+module.exports = ecr

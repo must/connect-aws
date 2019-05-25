@@ -21,8 +21,8 @@
     "connect-platform": "*"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4",
-    "connect-platform": "^0.2.13"
+    "connect-platform": "^0.2.14",
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
     "aws-sdk": "^2.463.0"

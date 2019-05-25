@@ -32,7 +32,7 @@ module.exports.platform = {
        * package, without the extension.
        *
        */
-      native : ['query']
+      native : ['ECR/getAuthorizationToken']
     },
     /**
      *
@@ -43,20 +43,21 @@ module.exports.platform = {
      *
      */
     aliases: {
-      '/db/query': '/connect-postgres/query',
+      '/aws/ECR/getAuthorizationToken': '/connect-aws/ECR/getAuthorizationToken',
     }
   },
   hints: {
     setup:
   `Should work if you provide the correct configuration as shown below.<br>
-  Otherwise, check the sample configuration below and <a href="https://node-postgres.com/features/connecting">this page</a> for a more detailled description on all the options.`,
+  Otherwise, check the sample configuration below and <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Credentials.html">this page (credentials)</a>/<a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS.html#config-property">this page (AWS.conig)</a> for a more detailled description on all the options.`,
   sampleConfig: {
-      postgres: {
-        "user": 'dbuser',
-        "host": 'database.server.com',
-        "database": 'mydb',
-        "password": 'secretpassword',
-        "port": 3211,
+      "aws": {
+        "credentials": {
+          "accessKeyId": "<ACCESS KEY ID>",
+          "secretAccessKey": "<SECRET ACCESS KEY>",
+          "sessionToken": "<OPTIONAL SESSION TOKEN>"
+        },
+        "region": "eu-central-1"
       }
     }
   }
