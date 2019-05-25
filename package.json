@@ -1,0 +1,30 @@
+{
+  "name": "connect-aws",
+  "version": "0.0.1",
+  "description": "the AWS SDK CONNECT platform package.",
+  "main": ".",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/must/connect-aws"
+  },
+  "author": "Mustapha Ben Chaaben <mustapha@connect-platform.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/must/connect-aws/issues"
+  },
+  "homepage": "https://github.com/must/connect-aws#readme",
+  "peerDependencies": {
+    "connect-platform": "*"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "connect-platform": "^0.2.13"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.463.0"
+  }
+}
