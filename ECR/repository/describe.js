@@ -115,25 +115,13 @@ platform.core.node({
     }
   }
 },
-  /**
-   *
-   * this function is the main logic of your node.
-   * - 'inputs' is a dictionary of all given inputs.
-   * - 'output' is a function you can use to output some data.
-   *    it can be used like `output('x', data)` where 'x' is defined in
-   *    possible output keys (see above).
-   * - 'control' is a function you can use to end with a control output.
-   *    it can be used like `control('x')` where 'x' is defined in
-   *    possible control outputs (see above).
-   *
-   */
   (inputs, output, control) => {
     ecr.describeRepositories({ repositoryNames: [ inputs.name ] }, function(err, data) {
       if (err) {
-        console.log(err, err.stack); // an error occurred
+        console.log(err, err.stack);
         control('error');
       } else {
-        output('repository', data.repository);           // successful response
+        output('repository', data.repositories[0]);
       }
     });
   }

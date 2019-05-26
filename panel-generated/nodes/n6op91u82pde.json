@@ -1,5 +1,5 @@
 {
-  "path": "/createRepository/",
+  "path": "/createRepository",
   "method": "GET",
   "public": true,
   "in": [
