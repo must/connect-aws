@@ -1,5 +1,5 @@
-# connect-platform-package-boilerplate
-The official postgres CONNECT platform package
+# connect-aws
+The official AWS CONNECT platform package
 
 
 ## how to setup

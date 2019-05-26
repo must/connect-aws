@@ -1,0 +1,59 @@
+{
+  "path": "/createRepository/",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "repositoryName"
+  ],
+  "out": [
+    "repository"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 398,
+        "right": 640,
+        "top": 255,
+        "bottom": 385
+      },
+      "path": "/ecr/repository/create"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "repositoryName"
+      },
+      {
+        "c0": {
+          "in": "repositoryName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "repository"
+        }
+      },
+      {
+        "out": "repository"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}

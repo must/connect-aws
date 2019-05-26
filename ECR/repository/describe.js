@@ -8,7 +8,7 @@
 
 const platform = require('connect-platform');
 
-const ecr = require('../connection');
+const ecr = require('../../connection');
 
 /**
  *
@@ -21,7 +21,7 @@ platform.core.node({
    * it should be accessible via '/test-package/hellow'
    *
    */
-  path: '/connect-aws/ECR/getAuthorizationToken',
+  path: '/connect-aws/ECR/repository/describe',
 
   /**
    *
@@ -47,7 +47,7 @@ platform.core.node({
    * a name we want to say 'hellow' to.
    *
    */
-  inputs: ['params'],
+  inputs: ['name'],
 
   /**
    *
@@ -58,7 +58,7 @@ platform.core.node({
    * our 'hellow' message will be the output.
    *
    */
-  outputs: ['authorizationData'],
+  outputs: ['repository'],
 
   /**
    *
@@ -93,7 +93,7 @@ platform.core.node({
      *
      */
     inputs: {
-      params: 'the parameters as an object which includes optionally a registeryIds field.',
+      name: '<span class="hl-blue">Name</span> of the repository to be searched for'
     },
 
     /**
@@ -102,7 +102,7 @@ platform.core.node({
      *
      */
     outputs: {
-      authorizationData: 'the returned result object for the <span class="hl-blue">query</span>.'
+      repository: 'the returned result object for the <span class="hl-blue">repository</span>.'
     },
 
     /**
@@ -128,12 +128,12 @@ platform.core.node({
    *
    */
   (inputs, output, control) => {
-    ecr.getAuthorizationToken(inputs.params, function(err, data) {
+    ecr.describeRepositories({ repositoryNames: [ inputs.name ] }, function(err, data) {
       if (err) {
         console.log(err, err.stack); // an error occurred
         control('error');
       } else {
-        output('authorizationData', data.authorizationData);           // successful response
+        output('repository', data.repository);           // successful response
       }
     });
   }

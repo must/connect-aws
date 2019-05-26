@@ -1,0 +1,59 @@
+{
+  "path": "/repository/describe",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "name"
+  ],
+  "out": [
+    "repository"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 532,
+        "right": 774,
+        "top": 340,
+        "bottom": 470
+      },
+      "path": "/ecr/repository/describe"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c0": {
+          "in": "name"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "repository"
+        }
+      },
+      {
+        "out": "repository"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}

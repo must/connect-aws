@@ -32,7 +32,12 @@ module.exports.platform = {
        * package, without the extension.
        *
        */
-      native : ['ECR/getAuthorizationToken']
+      native : [
+        'ECR/token/get',
+        'ECR/repository/create',
+        'ECR/repository/describe',
+        'ECR/repositories/describe'
+       ]
     },
     /**
      *
@@ -43,7 +48,17 @@ module.exports.platform = {
      *
      */
     aliases: {
-      '/aws/ECR/getAuthorizationToken': '/connect-aws/ECR/getAuthorizationToken',
+      '/aws/ECR/token/get': '/connect-aws/ECR/token/get',
+      '/ecr/token/get': '/connect-aws/ECR/token/get',
+      
+      '/aws/ECR/repository/create': '/connect-aws/ECR/repository/create',
+      '/ecr/repository/create': '/connect-aws/ECR/repository/create',
+
+      '/aws/ECR/repository/describe': '/connect-aws/ECR/repository/describe',
+      '/ecr/repository/describe': '/connect-aws/ECR/repository/describe',
+
+      '/aws/ECR/repositories/describe': '/connect-aws/ECR/repositories/describe',
+      '/ecr/repositories/describe': '/connect-aws/ECR/repositories/describe'
     }
   },
   hints: {

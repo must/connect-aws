@@ -5,10 +5,6 @@ let options = platform.config.get('aws', {});
 
 let credentials = new AWS.Credentials(options.credentials);
 
-console.log({
-  credentials: credentials, region: options.region
-});
-
 AWS.config = new AWS.Config({
   credentials: credentials, region: options.region
 });
