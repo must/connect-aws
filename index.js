@@ -35,6 +35,7 @@ module.exports.platform = {
       native : [
         'ECR/token/get',
         'ECR/repository/create',
+        'ECR/repository/delete',
         'ECR/repository/describe',
         'ECR/repositories/describe'
        ]
@@ -53,6 +54,9 @@ module.exports.platform = {
       
       '/aws/ECR/repository/create': '/connect-aws/ECR/repository/create',
       '/ecr/repository/create': '/connect-aws/ECR/repository/create',
+
+      '/aws/ECR/repository/delete': '/connect-aws/ECR/repository/delete',
+      '/ecr/repository/delete': '/connect-aws/ECR/repository/delete',
 
       '/aws/ECR/repository/describe': '/connect-aws/ECR/repository/describe',
       '/ecr/repository/describe': '/connect-aws/ECR/repository/describe',

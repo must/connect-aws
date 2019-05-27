@@ -1,0 +1,79 @@
+{
+  "path": "/repository/delete/",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "name"
+  ],
+  "out": [
+    "repository"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 492,
+        "right": 734,
+        "top": 217,
+        "bottom": 373
+      },
+      "path": "/ecr/repository/delete"
+    },
+    {
+      "tag": "v0",
+      "box": {
+        "left": 266,
+        "right": 438,
+        "top": 356,
+        "bottom": 356
+      },
+      "expr": "true"
+    }
+  ],
+  "links": [
+    [
+      {
+        "v0": "result"
+      },
+      {
+        "c0": {
+          "in": "force"
+        }
+      }
+    ],
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c0": {
+          "in": "repositoryName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "repository"
+        }
+      },
+      {
+        "out": "repository"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}
