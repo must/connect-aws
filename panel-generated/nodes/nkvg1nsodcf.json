@@ -1,0 +1,113 @@
+{
+  "path": "/repository/policy/allowUserToPush/",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "awsAccountId",
+    "user",
+    "name"
+  ],
+  "out": [
+    "repository"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 730,
+        "right": 972,
+        "top": 221,
+        "bottom": 377
+      },
+      "path": "/ecr/repository/policy/set"
+    },
+    {
+      "tag": "c1",
+      "box": {
+        "left": 379,
+        "right": 621,
+        "top": 51,
+        "bottom": 233
+      },
+      "path": "/ecr/repository/policy/create/allowPushPull"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c0": {
+          "in": "repositoryName"
+        }
+      }
+    ],
+    [
+      {
+        "in": "awsAccountId"
+      },
+      {
+        "c1": {
+          "in": "awsAccountId"
+        }
+      }
+    ],
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c1": {
+          "in": "repositoryName"
+        }
+      }
+    ],
+    [
+      {
+        "c1": {
+          "out": "policy"
+        }
+      },
+      {
+        "c0": {
+          "in": "policy"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "repository"
+        }
+      },
+      {
+        "out": "repository"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "in": "user"
+      },
+      {
+        "c1": {
+          "in": "users"
+        }
+      }
+    ]
+  ]
+}

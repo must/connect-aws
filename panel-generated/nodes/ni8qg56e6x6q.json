@@ -31,7 +31,7 @@
         "top": 438,
         "bottom": 438
       },
-      "expr": "() => {\n  const now =  new Date();\n  //\"Version\": \"${now.getFullYear()}-${now.getMonth()}-${now.getDate()}\",\n return {\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowPushPull\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"AWS\": [\n          \"arn:aws:iam::701707847376:user/test-user\"\n        ]\n      },\n      \"Action\": [\n        \"ecr:GetDownloadUrlForLayer\",\n        \"ecr:BatchGetImage\",\n        \"ecr:BatchCheckLayerAvailability\",\n        \"ecr:PutImage\",\n        \"ecr:InitiateLayerUpload\",\n        \"ecr:UploadLayerPart\",\n        \"ecr:CompleteLayerUpload\"\n      ]\n    }\n  ]\n }\n};"
+      "expr": "() => {\n return {\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowPushPull\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"AWS\": [\n          \"arn:aws:iam::701707847376:user/test-user\"\n        ]\n      },\n      \"Action\": [\n        \"ecr:GetDownloadUrlForLayer\",\n        \"ecr:BatchGetImage\",\n        \"ecr:BatchCheckLayerAvailability\",\n        \"ecr:PutImage\",\n        \"ecr:InitiateLayerUpload\",\n        \"ecr:UploadLayerPart\",\n        \"ecr:CompleteLayerUpload\"\n      ]\n    }\n  ]\n }\n};"
     },
     {
       "tag": "e0",

@@ -8,7 +8,7 @@
 
 const platform = require('connect-platform');
 
-const ecr = require('../../../connection');
+const ecr = require('../../../../connection');
 
 /**
  *
@@ -21,7 +21,7 @@ platform.core.node({
    * it should be accessible via '/test-package/hellow'
    *
    */
-  path: '/aws/ECR/repository/policy/set',
+  path: '/aws/ECR/repository/policy/create/allowPushPull',
 
   /**
    *
@@ -49,7 +49,8 @@ platform.core.node({
    */
   inputs: [
     'repositoryName',
-    'policy'
+    'awsAccountId',
+    'users'
    ],
 
   /**
@@ -61,7 +62,7 @@ platform.core.node({
    * our 'hellow' message will be the output.
    *
    */
-  outputs: ['repository'],
+  outputs: ['policy'],
 
   /**
    *
@@ -88,7 +89,7 @@ platform.core.node({
      * this is the description of the node in general.
      *
      */
-    node: 'Sets a <span class="hl-blue">policy</span> to a repository using the <span class="hl-blue">repositoryName</span>. <b>This replaces the old policy!</b>',
+    node: 'Creates a push/pull repository <span class="hl-blue">policy</span>.',
 
     /**
      *
@@ -97,7 +98,8 @@ platform.core.node({
      */
     inputs: {
       repositoryName: 'The <span class="hl-blue">repositoryName</span> to be created.',
-      policy: 'The <span class="hl-blue">policy</span> to be set.'
+      awsAccountId: 'The <span class="hl-blue">awsAccountId</span> to be used.',
+      users: 'The user to be granted permission.'
     },
 
     /**
@@ -106,7 +108,7 @@ platform.core.node({
      *
      */
     outputs: {
-      repository: 'the returned result object for the <span class="hl-blue">repository</span>.'
+      policy: 'The generated policy for the <span class="hl-blue">repositoryName</span>, <span class="hl-blue">awsAccountId</span> and <span class="hl-blue">user</span>.'
     },
 
     /**
@@ -120,19 +122,35 @@ platform.core.node({
   }
 },
   (inputs, output, control) => {
-    var params = {
-      policyText: JSON.stringify(inputs.policy), /* required */
-      repositoryName: inputs.repositoryName, /* required */
-      force: false
-    };
-    
-    ecr.setRepositoryPolicy(params, function(err, data) {
-      if (err) {
-        console.log(err, err.stack); // an error occurred
-        control('error');
-      } else {
-        output('repository', data);           // successful response
-      }
-    });
+    const usersInput = Array.isArray(inputs.users) ? inputs.users : [inputs.users];
+    let users = [];
+
+    for(var user in usersInput) {
+      users.push("arn:aws:iam::" + inputs.awsAccountId + ":user/" + usersInput[user]);
+    }
+
+    const policy = {
+      "Version": "2008-10-17",
+      "Statement": [
+        {
+          "Sid": "AllowPushPull",
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": users
+          },
+          "Action": [
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:BatchGetImage",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:PutImage",
+            "ecr:InitiateLayerUpload",
+            "ecr:UploadLayerPart",
+            "ecr:CompleteLayerUpload"
+          ]
+        }
+      ]
+     };
+
+    output('policy', policy);
   }
 );
