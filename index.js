@@ -39,6 +39,8 @@ module.exports.platform = {
         'ECR/repository/delete',
         'ECR/repository/describe',
         'ECR/repository/policy/set',
+        'ECR/repository/policy/get',
+        'ECR/repository/policy/parse',
         'ECR/repository/policy/create/allowPushPull',
         
         'ECR/repositories/describe'
@@ -59,6 +61,8 @@ module.exports.platform = {
       '/ecr/repository/delete': '/aws/ECR/repository/delete',
       '/ecr/repository/describe': '/aws/ECR/repository/describe',
       '/ecr/repository/policy/set': '/aws/ECR/repository/policy/set',
+      '/ecr/repository/policy/get': '/aws/ECR/repository/policy/get',
+      '/ecr/repository/policy/parse': '/aws/ECR/repository/policy/parse',
       '/ecr/repository/policy/create/allowPushPull': '/aws/ECR/repository/policy/create/allowPushPull',
 
       '/ecr/repositories/describe': '/aws/ECR/repositories/describe'

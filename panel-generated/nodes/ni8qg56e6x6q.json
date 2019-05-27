@@ -32,19 +32,6 @@
         "bottom": 438
       },
       "expr": "() => {\n return {\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowPushPull\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"AWS\": [\n          \"arn:aws:iam::701707847376:user/test-user\"\n        ]\n      },\n      \"Action\": [\n        \"ecr:GetDownloadUrlForLayer\",\n        \"ecr:BatchGetImage\",\n        \"ecr:BatchCheckLayerAvailability\",\n        \"ecr:PutImage\",\n        \"ecr:InitiateLayerUpload\",\n        \"ecr:UploadLayerPart\",\n        \"ecr:CompleteLayerUpload\"\n      ]\n    }\n  ]\n }\n};"
-    },
-    {
-      "tag": "e0",
-      "box": {
-        "left": 366,
-        "right": 538,
-        "top": 513,
-        "bottom": 591
-      },
-      "in": [
-        "json"
-      ],
-      "expr": "JSON.stringify(json)"
     }
   ],
   "links": [
@@ -83,18 +70,8 @@
         "v0": "result"
       },
       {
-        "e0": {
-          "in": "json"
-        }
-      }
-    ],
-    [
-      {
-        "e0": "result"
-      },
-      {
         "c0": {
-          "in": "policyText"
+          "in": "policy"
         }
       }
     ]

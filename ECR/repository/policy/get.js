@@ -21,7 +21,7 @@ platform.core.node({
    * it should be accessible via '/test-package/hellow'
    *
    */
-  path: '/aws/ECR/repository/policy/set',
+  path: '/aws/ECR/repository/policy/get',
 
   /**
    *
@@ -48,8 +48,7 @@ platform.core.node({
    *
    */
   inputs: [
-    'repositoryName',
-    'policy'
+    'repositoryName'
    ],
 
   /**
@@ -88,7 +87,7 @@ platform.core.node({
      * this is the description of the node in general.
      *
      */
-    node: 'Sets a <span class="hl-blue">policy</span> to a repository using the <span class="hl-blue">repositoryName</span>. <b>This replaces the old policy!</b>',
+    node: 'Gets the <span class="hl-blue">policy</span> attributed to a repository using the <span class="hl-blue">repositoryName</span>.',
 
     /**
      *
@@ -96,8 +95,7 @@ platform.core.node({
      *
      */
     inputs: {
-      repositoryName: 'The <span class="hl-blue">repositoryName</span> to be created.',
-      policy: 'The <span class="hl-blue">policy</span> to be set.'
+      repositoryName: 'The <span class="hl-blue">repositoryName</span> to be created.'
     },
 
     /**
@@ -121,12 +119,10 @@ platform.core.node({
 },
   (inputs, output, control) => {
     var params = {
-      policyText: JSON.stringify(inputs.policy), /* required */
-      repositoryName: inputs.repositoryName, /* required */
-      force: false
+      repositoryName: inputs.repositoryName /* required */
     };
     
-    ecr.setRepositoryPolicy(params, function(err, data) {
+    ecr.getRepositoryPolicy(params, function(err, data) {
       if (err) {
         console.log(err, err.stack); // an error occurred
         control('error');
