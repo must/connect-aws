@@ -72,7 +72,7 @@ platform.core.node({
    * cases like errors or misconfigurations.
    *
    */
-  controlOutputs: ['error'],
+  controlOutputs: [],
 
   /**
    *
@@ -117,7 +117,6 @@ platform.core.node({
      *
      */
     controlOutputs: {
-      error: 'This signals that something bad happened with the <span class="hl-blue">request</span>.'
     }
   }
 },
