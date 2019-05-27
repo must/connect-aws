@@ -1,0 +1,102 @@
+{
+  "path": "/repository/policy/set",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "name"
+  ],
+  "out": [
+    "repository"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 596,
+        "right": 838,
+        "top": 249,
+        "bottom": 405
+      },
+      "path": "/ecr/repository/policy/set"
+    },
+    {
+      "tag": "v0",
+      "box": {
+        "left": 171,
+        "right": 343,
+        "top": 438,
+        "bottom": 438
+      },
+      "expr": "() => {\n  const now =  new Date();\n  //\"Version\": \"${now.getFullYear()}-${now.getMonth()}-${now.getDate()}\",\n return {\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"AllowPushPull\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"AWS\": [\n          \"arn:aws:iam::701707847376:user/test-user\"\n        ]\n      },\n      \"Action\": [\n        \"ecr:GetDownloadUrlForLayer\",\n        \"ecr:BatchGetImage\",\n        \"ecr:BatchCheckLayerAvailability\",\n        \"ecr:PutImage\",\n        \"ecr:InitiateLayerUpload\",\n        \"ecr:UploadLayerPart\",\n        \"ecr:CompleteLayerUpload\"\n      ]\n    }\n  ]\n }\n};"
+    },
+    {
+      "tag": "e0",
+      "box": {
+        "left": 366,
+        "right": 538,
+        "top": 513,
+        "bottom": 591
+      },
+      "in": [
+        "json"
+      ],
+      "expr": "JSON.stringify(json)"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c0": {
+          "in": "repositoryName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "repository"
+        }
+      },
+      {
+        "out": "repository"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "v0": "result"
+      },
+      {
+        "e0": {
+          "in": "json"
+        }
+      }
+    ],
+    [
+      {
+        "e0": "result"
+      },
+      {
+        "c0": {
+          "in": "policyText"
+        }
+      }
+    ]
+  ]
+}

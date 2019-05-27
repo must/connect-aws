@@ -8,7 +8,7 @@
 
 const platform = require('connect-platform');
 
-const ecr = require('../../connection');
+const ecr = require('../../../connection');
 
 /**
  *
@@ -21,7 +21,7 @@ platform.core.node({
    * it should be accessible via '/test-package/hellow'
    *
    */
-  path: '/aws/ECR/repository/describe',
+  path: '/aws/ECR/repository/policy/set',
 
   /**
    *
@@ -47,7 +47,10 @@ platform.core.node({
    * a name we want to say 'hellow' to.
    *
    */
-  inputs: ['name'],
+  inputs: [
+    'repositoryName',
+    'policyText'
+   ],
 
   /**
    *
@@ -85,7 +88,7 @@ platform.core.node({
      * this is the description of the node in general.
      *
      */
-    node: 'Gets an authorization tocken using the optional <span class="hl-blue">params</span>.',
+    node: 'Created a new repository using the <span class="hl-blue">repositoryName</span>.',
 
     /**
      *
@@ -93,7 +96,8 @@ platform.core.node({
      *
      */
     inputs: {
-      name: '<span class="hl-blue">Name</span> of the repository to be searched for'
+      repositoryName: 'The <span class="hl-blue">repositoryName</span> to be created.',
+      policyText: 'The <span class="hl-blue">policyText</span> to be set.'
     },
 
     /**
@@ -116,12 +120,18 @@ platform.core.node({
   }
 },
   (inputs, output, control) => {
-    ecr.describeRepositories({ repositoryNames: [ inputs.name ] }, function(err, data) {
+    var params = {
+      policyText: inputs.policyText, /* required */
+      repositoryName: inputs.repositoryName, /* required */
+      force: false
+    };
+    
+    ecr.setRepositoryPolicy(params, function(err, data) {
       if (err) {
-        console.log(err, err.stack);
+        console.log(err, err.stack); // an error occurred
         control('error');
       } else {
-        output('repository', data.repositories[0]);
+        output('repository', data);           // successful response
       }
     });
   }

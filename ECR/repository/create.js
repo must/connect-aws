@@ -21,7 +21,7 @@ platform.core.node({
    * it should be accessible via '/test-package/hellow'
    *
    */
-  path: '/connect-aws/ECR/repository/create',
+  path: '/aws/ECR/repository/create',
 
   /**
    *

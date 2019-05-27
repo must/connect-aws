@@ -34,9 +34,12 @@ module.exports.platform = {
        */
       native : [
         'ECR/token/get',
+
         'ECR/repository/create',
         'ECR/repository/delete',
         'ECR/repository/describe',
+        'ECR/repository/policy/set',
+        
         'ECR/repositories/describe'
        ]
     },
@@ -49,20 +52,14 @@ module.exports.platform = {
      *
      */
     aliases: {
-      '/aws/ECR/token/get': '/connect-aws/ECR/token/get',
-      '/ecr/token/get': '/connect-aws/ECR/token/get',
+      '/ecr/token/get': '/aws/ECR/token/get',
       
-      '/aws/ECR/repository/create': '/connect-aws/ECR/repository/create',
-      '/ecr/repository/create': '/connect-aws/ECR/repository/create',
+      '/ecr/repository/create': '/aws/ECR/repository/create',
+      '/ecr/repository/delete': '/aws/ECR/repository/delete',
+      '/ecr/repository/describe': '/aws/ECR/repository/describe',
+      '/ecr/repository/policy/set': '/aws/ECR/repository/policy/set',
 
-      '/aws/ECR/repository/delete': '/connect-aws/ECR/repository/delete',
-      '/ecr/repository/delete': '/connect-aws/ECR/repository/delete',
-
-      '/aws/ECR/repository/describe': '/connect-aws/ECR/repository/describe',
-      '/ecr/repository/describe': '/connect-aws/ECR/repository/describe',
-
-      '/aws/ECR/repositories/describe': '/connect-aws/ECR/repositories/describe',
-      '/ecr/repositories/describe': '/connect-aws/ECR/repositories/describe'
+      '/ecr/repositories/describe': '/aws/ECR/repositories/describe'
     }
   },
   hints: {
