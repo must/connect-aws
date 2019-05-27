@@ -8,7 +8,7 @@
 
 const platform = require('connect-platform');
 
-const ecr = require('../../../connection');
+const aws = require('../../../connection');
 
 /**
  *
@@ -122,7 +122,7 @@ platform.core.node({
       repositoryName: inputs.repositoryName /* required */
     };
     
-    ecr.getRepositoryPolicy(params, function(err, data) {
+    aws.ecr.getRepositoryPolicy(params, function(err, data) {
       if (err) {
         console.log(err, err.stack); // an error occurred
         control('error');

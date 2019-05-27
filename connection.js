@@ -9,6 +9,16 @@ AWS.config = new AWS.Config({
   credentials: credentials, region: options.region
 });
 
-let ecr = new AWS.ECR({apiVersion: '2015-09-21'});
+let ecr = null;
 
-module.exports = ecr
+let aws = {
+  get ecr () {
+    if(ecr === null) {
+      ecr = new AWS.ECR({apiVersion: '2015-09-21'})
+    }
+
+    return ecr;
+ }
+};
+
+module.exports = aws

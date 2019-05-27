@@ -8,8 +8,6 @@
 
 const platform = require('connect-platform');
 
-const ecr = require('../../../../connection');
-
 /**
  *
  * lets define a new node for the platform.

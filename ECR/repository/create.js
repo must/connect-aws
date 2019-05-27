@@ -8,7 +8,7 @@
 
 const platform = require('connect-platform');
 
-const ecr = require('../../connection');
+const aws = require('../../connection');
 
 /**
  *
@@ -116,7 +116,7 @@ platform.core.node({
   }
 },
   (inputs, output, control) => {
-    ecr.createRepository({ repositoryName: inputs.repositoryName }, function(err, data) {
+    aws.ecr.createRepository({ repositoryName: inputs.repositoryName }, function(err, data) {
       if (err) {
         console.log(err, err.stack); // an error occurred
         control('error');
