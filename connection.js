@@ -10,14 +10,21 @@ AWS.config = new AWS.Config({
 });
 
 let ecr = null;
+let iam = null;
 
 let aws = {
-  get ecr () {
-    if(ecr === null) {
+  get ecr() {
+    if(ecr === null)
       ecr = new AWS.ECR({apiVersion: '2015-09-21'})
-    }
 
     return ecr;
+ }
+
+ get iam() {
+   if(iam === null)
+     iam = new AWS.IAM({apiVersion: '2010-05-08'});
+
+   return iam;
  }
 };
 
