@@ -21,7 +21,7 @@
     "connect-platform": "*"
   },
   "devDependencies": {
-    "connect-platform": "^0.2.14",
+    "connect-platform": "^0.2.15",
     "nodemon": "^1.19.1"
   },
   "dependencies": {
