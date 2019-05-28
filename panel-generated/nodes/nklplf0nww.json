@@ -1,0 +1,70 @@
+{
+  "path": "/user/policy/get",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "arn"
+  ],
+  "out": [
+    "policy"
+  ],
+  "configs": [],
+  "control": [
+    "error",
+    "not_found"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 337,
+        "right": 579,
+        "top": 221,
+        "bottom": 377
+      },
+      "path": "/iam/user/policy/get"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "arn"
+      },
+      {
+        "c0": {
+          "in": "arn"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "policy"
+        }
+      },
+      {
+        "out": "policy"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "not_found"
+        }
+      },
+      {
+        "out": "not_found"
+      }
+    ]
+  ]
+}

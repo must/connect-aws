@@ -16,5 +16,6 @@
   "/user/keys/delete": "nd0x4f1eb3i",
   "/user/policies/list": "nmhbdc4ei2p",
   "/user/policy/delete": "nuk49ppbbh3k",
-  "/user/policy/create": "nete3ggtf31"
+  "/user/policy/create": "nete3ggtf31",
+  "/user/policy/get": "nklplf0nww"
 }

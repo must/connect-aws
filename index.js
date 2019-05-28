@@ -53,6 +53,7 @@ module.exports.platform = {
         'IAM/user/key/list',
 
         'IAM/user/policy/create',
+        'IAM/user/policy/get',
         'IAM/user/policy/create/iam/getAuthorizationToken',
         'IAM/user/policy/delete',
         'IAM/user/policies/list',
@@ -87,6 +88,7 @@ module.exports.platform = {
       '/iam/user/key/list': '/aws/IAM/user/key/list',
 
       '/iam/user/policy/create': '/aws/IAM/user/policy/create',
+      '/iam/user/policy/get': '/aws/IAM/user/policy/get',
       '/iam/user/policy/create/iam/getAuthorizationToken': '/aws/IAM/user/policy/create/iam/getAuthorizationToken',
       '/iam/user/policy/delete': '/aws/IAM/user/policy/delete',
       '/iam/user/policies/list': '/aws/IAM/user/policies/list',
