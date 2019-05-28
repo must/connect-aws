@@ -1,10 +1,17 @@
 {
   "/repositories/describe": "nc9do7ft4brd",
   "/repository/describe": "npq6atc79gbm",
-  "/createRepository": "n6op91u82pde",
-  "/token": "n0uti98j6qusm",
   "/repository/delete/": "n24zwg5ix5bg",
   "/repository/policy/allowUserToPush/": "nkvg1nsodcf",
   "/repository/policy/get/": "nf0khsvvcunm",
-  "/repository/policy/set": "ni8qg56e6x6q"
+  "/repository/policy/set": "ni8qg56e6x6q",
+  "/repository/create": "n6op91u82pde",
+  "/token/create": "n0uti98j6qusm",
+  "/user/create": "nls2qjzpykus",
+  "/user/get": "nq886f7xpow",
+  "/user/key/create": "nf2itq6dgyq",
+  "/user/key/delete/": "n8k31ng2ceae",
+  "/user/key/createAndDelete": "n70k2inap5bi",
+  "/user/key/list": "nemiu1k7mmjw",
+  "/user/keys/delete": "nd0x4f1eb3i"
 }

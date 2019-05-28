@@ -43,7 +43,14 @@ module.exports.platform = {
         'ECR/repository/policy/parse',
         'ECR/repository/policy/create/allowPushPull',
         
-        'ECR/repositories/describe'
+        'ECR/repositories/describe',
+
+        'IAM/user/create',
+        'IAM/user/get',
+
+        'IAM/user/key/create',
+        'IAM/user/key/delete',
+        'IAM/user/key/list'
        ]
     },
     /**
@@ -65,7 +72,14 @@ module.exports.platform = {
       '/ecr/repository/policy/parse': '/aws/ECR/repository/policy/parse',
       '/ecr/repository/policy/create/allowPushPull': '/aws/ECR/repository/policy/create/allowPushPull',
 
-      '/ecr/repositories/describe': '/aws/ECR/repositories/describe'
+      '/ecr/repositories/describe': '/aws/ECR/repositories/describe',
+
+      '/iam/user/create': '/aws/IAM/user/create',
+      '/iam/user/get': '/aws/IAM/user/get',
+
+      '/iam/user/key/create': '/aws/IAM/user/key/create',
+      '/iam/user/key/delete': '/aws/IAM/user/key/delete',
+      '/iam/user/key/list': '/aws/IAM/user/key/list',
     }
   },
   hints: {

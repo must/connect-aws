@@ -18,7 +18,7 @@ let aws = {
       ecr = new AWS.ECR({apiVersion: '2015-09-21'})
 
     return ecr;
- }
+ },
 
  get iam() {
    if(iam === null)
