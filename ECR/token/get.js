@@ -15,7 +15,7 @@ platform.core.node({
 
   method: 'GET',
 
-  inputs: ['params'],
+  inputs: [ 'params', 'config' ],
 
   outputs: ['authorizationData'],
 
@@ -38,7 +38,7 @@ platform.core.node({
   }
 },
   (inputs, output, control) => {
-    aws.ecr.getAuthorizationToken(inputs.params, function(err, data) {
+    aws.config(inputs.config).ecr.getAuthorizationToken(inputs.params, function(err, data) {
       if (err) {
         console.log(err, err.stack); // an error occurred
         control('error');

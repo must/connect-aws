@@ -9,23 +9,54 @@ AWS.config = new AWS.Config({
   credentials: credentials, region: options.region
 });
 
-let ecr = null;
-let iam = null;
+var accessors = [];
 
-let aws = {
-  get ecr() {
-    if(ecr === null)
-      ecr = new AWS.ECR({apiVersion: '2015-09-21'})
+let configFunction = function(config) {
+  var lowerCaseConfig = {};
+  for(var property in config) {
+    lowerCaseConfig[property.charAt(0).toLowerCase() + property.slice(1)] = config[property];
+  }
+  config = lowerCaseConfig;
 
-    return ecr;
- },
+  var key = options.credentials.accessKeyId;
 
- get iam() {
-   if(iam === null)
-     iam = new AWS.IAM({apiVersion: '2010-05-08'});
+  if('accessKeyId' in config) {
+    key = config.accessKeyId;
+  } else {
+    config = {};
+  }
 
-   return iam;
- }
+  console.log(config);
+
+  if(key in accessors) return accessors[key];
+
+  accessors[key] = (function() {
+    let ecr = null;
+    let iam = null;
+
+    let lConfig = config; // Get a copy of the config
+    
+    return {
+      get ecr() {
+        if(ecr === null)
+          ecr = new AWS.ECR(Object.assign(lConfig, { apiVersion: '2015-09-21' }));
+
+        return ecr;
+      },
+
+      get iam() {
+       if(iam === null)
+         iam = new AWS.IAM(Object.assign(lConfig, { apiVersion: '2010-05-08' }));
+
+       return iam;
+      }
+    }
+  })();
+
+  return accessors[key];
 };
+
+let aws = configFunction(options);
+aws.config = configFunction;
 
 module.exports = aws

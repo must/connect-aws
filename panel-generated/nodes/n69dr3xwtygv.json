@@ -1,0 +1,70 @@
+{
+  "path": "/user/policy/attach",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "arn",
+    "userName"
+  ],
+  "out": [
+    "policy"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 387,
+        "right": 629,
+        "top": 248,
+        "bottom": 404
+      },
+      "path": "/iam/user/policy/attach"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "arn"
+      },
+      {
+        "c0": {
+          "in": "arn"
+        }
+      }
+    ],
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c0": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "policy"
+        }
+      },
+      {
+        "out": "policy"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}
