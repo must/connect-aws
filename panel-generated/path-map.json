@@ -13,5 +13,8 @@
   "/user/key/delete/": "n8k31ng2ceae",
   "/user/key/createAndDelete": "n70k2inap5bi",
   "/user/key/list": "nemiu1k7mmjw",
-  "/user/keys/delete": "nd0x4f1eb3i"
+  "/user/keys/delete": "nd0x4f1eb3i",
+  "/user/policies/list": "nmhbdc4ei2p",
+  "/user/policy/delete": "nuk49ppbbh3k",
+  "/user/policy/create": "nete3ggtf31"
 }

@@ -1,0 +1,59 @@
+{
+  "path": "/user/policy/delete",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "arn"
+  ],
+  "out": [
+    "reponse"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 216,
+        "right": 458,
+        "top": 199,
+        "bottom": 329
+      },
+      "path": "/iam/user/policy/delete"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "arn"
+      },
+      {
+        "c0": {
+          "in": "arn"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "response"
+        }
+      },
+      {
+        "out": "reponse"
+      }
+    ]
+  ]
+}

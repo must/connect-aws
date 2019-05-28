@@ -15,10 +15,10 @@
     {
       "tag": "c0",
       "box": {
-        "left": 586,
-        "right": 828,
-        "top": 203,
-        "bottom": 333
+        "left": 551,
+        "right": 793,
+        "top": 248,
+        "bottom": 378
       },
       "path": "#iterate"
     },
@@ -35,10 +35,10 @@
     {
       "tag": "e0",
       "box": {
-        "left": 811,
-        "right": 983,
-        "top": 50,
-        "bottom": 128
+        "left": 570,
+        "right": 742,
+        "top": 126,
+        "bottom": 204
       },
       "in": [
         "step"
@@ -48,38 +48,25 @@
     {
       "tag": "e1",
       "box": {
-        "left": 873,
-        "right": 1045,
-        "top": 212,
-        "bottom": 430
+        "left": 617,
+        "right": 789,
+        "top": 414,
+        "bottom": 492
       },
       "in": [
         "step"
       ],
-      "expr": "() => {\n  console.log(step.item);\n  console.log(\"typeof\");\n  console.log(typeof step.item);\n  console.log(step.item === undefined);\n  if(step.item !== undefined)\n    return step.item.AccessKeyId;\n  \n  return false;\n}"
+      "expr": "step.item.AccessKeyId"
     },
     {
       "tag": "c2",
       "box": {
-        "left": 653,
-        "right": 895,
-        "top": 543,
-        "bottom": 699
+        "left": 433,
+        "right": 675,
+        "top": 547,
+        "bottom": 703
       },
       "path": "/user/key/delete"
-    },
-    {
-      "tag": "s0",
-      "box": {
-        "left": 1109,
-        "right": 1253,
-        "top": 314,
-        "bottom": 455
-      },
-      "cases": [
-        "false",
-        "..."
-      ]
     }
   ],
   "links": [
@@ -90,18 +77,6 @@
       {
         "c1": {
           "in": "userName"
-        }
-      }
-    ],
-    [
-      {
-        "c1": {
-          "out": "accessKeys"
-        }
-      },
-      {
-        "c0": {
-          "in": "target"
         }
       }
     ],
@@ -141,16 +116,6 @@
     ],
     [
       {
-        "e1": "result"
-      },
-      {
-        "c2": {
-          "in": "accessKeyId"
-        }
-      }
-    ],
-    [
-      {
         "in": "userName"
       },
       {
@@ -181,19 +146,25 @@
     ],
     [
       {
-        "e1": "result"
+        "c1": {
+          "out": "accessKeys"
+        }
       },
       {
-        "s0": "target"
+        "c0": {
+          "in": "target"
+        }
       }
     ],
     [
       {
-        "s0": {
-          "case": "..."
-        }
+        "e1": "result"
       },
-      "c2"
+      {
+        "c2": {
+          "in": "accessKeyId"
+        }
+      }
     ]
   ]
 }

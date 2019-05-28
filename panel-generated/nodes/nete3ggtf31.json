@@ -1,0 +1,81 @@
+{
+  "path": "/user/policy/create",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "name"
+  ],
+  "out": [
+    "policy"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 291,
+        "right": 533,
+        "top": 156,
+        "bottom": 312
+      },
+      "path": "/iam/user/policy/create"
+    },
+    {
+      "tag": "c1",
+      "box": {
+        "left": 216,
+        "right": 458,
+        "top": 598,
+        "bottom": 676
+      },
+      "path": "/iam/user/policy/create/iam/getAuthorizationToken"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c0": {
+          "in": "name"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "policy"
+        }
+      },
+      {
+        "out": "policy"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "c1": {
+          "out": "policy"
+        }
+      },
+      {
+        "c0": {
+          "in": "document"
+        }
+      }
+    ]
+  ]
+}

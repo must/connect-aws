@@ -1,0 +1,47 @@
+{
+  "path": "/user/policies/list",
+  "method": "GET",
+  "public": true,
+  "in": [],
+  "out": [
+    "policies"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 307,
+        "right": 549,
+        "top": 159,
+        "bottom": 263
+      },
+      "path": "/iam/user/policies/list"
+    }
+  ],
+  "links": [
+    [
+      {
+        "c0": {
+          "out": "policies"
+        }
+      },
+      {
+        "out": "policies"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}

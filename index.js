@@ -50,7 +50,12 @@ module.exports.platform = {
 
         'IAM/user/key/create',
         'IAM/user/key/delete',
-        'IAM/user/key/list'
+        'IAM/user/key/list',
+
+        'IAM/user/policy/create',
+        'IAM/user/policy/create/iam/getAuthorizationToken',
+        'IAM/user/policy/delete',
+        'IAM/user/policies/list',
        ]
     },
     /**
@@ -80,6 +85,11 @@ module.exports.platform = {
       '/iam/user/key/create': '/aws/IAM/user/key/create',
       '/iam/user/key/delete': '/aws/IAM/user/key/delete',
       '/iam/user/key/list': '/aws/IAM/user/key/list',
+
+      '/iam/user/policy/create': '/aws/IAM/user/policy/create',
+      '/iam/user/policy/create/iam/getAuthorizationToken': '/aws/IAM/user/policy/create/iam/getAuthorizationToken',
+      '/iam/user/policy/delete': '/aws/IAM/user/policy/delete',
+      '/iam/user/policies/list': '/aws/IAM/user/policies/list',
     }
   },
   hints: {
