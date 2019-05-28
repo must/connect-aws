@@ -7,7 +7,7 @@
     "userName"
   ],
   "out": [
-    "policy"
+    "responseMetaData"
   ],
   "configs": [],
   "control": [
@@ -49,21 +49,21 @@
     [
       {
         "c0": {
-          "out": "policy"
-        }
-      },
-      {
-        "out": "policy"
-      }
-    ],
-    [
-      {
-        "c0": {
           "control": "error"
         }
       },
       {
         "out": "error"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "reponseMetadData"
+        }
+      },
+      {
+        "out": "responseMetaData"
       }
     ]
   ]

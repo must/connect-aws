@@ -26,8 +26,6 @@ let configFunction = function(config) {
     config = {};
   }
 
-  console.log(config);
-
   if(key in accessors) return accessors[key];
 
   accessors[key] = (function() {
@@ -35,7 +33,7 @@ let configFunction = function(config) {
     let iam = null;
 
     let lConfig = config; // Get a copy of the config
-    
+      
     return {
       get ecr() {
         if(ecr === null)

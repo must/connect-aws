@@ -1,0 +1,87 @@
+{
+  "path": "/token/create",
+  "method": "GET",
+  "public": true,
+  "in": [],
+  "out": [
+    "authorizationData"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 345,
+        "right": 587,
+        "top": 259,
+        "bottom": 415
+      },
+      "path": "/ecr/token/get"
+    },
+    {
+      "tag": "v0",
+      "box": {
+        "left": 178,
+        "right": 350,
+        "top": 121,
+        "bottom": 121
+      },
+      "expr": "{}"
+    },
+    {
+      "tag": "v1",
+      "box": {
+        "left": 150,
+        "right": 322,
+        "top": 493,
+        "bottom": 493
+      },
+      "expr": "{}"
+    }
+  ],
+  "links": [
+    [
+      {
+        "v0": "result"
+      },
+      {
+        "c0": {
+          "in": "params"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "authorizationData"
+        }
+      },
+      {
+        "out": "authorizationData"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "v1": "result"
+      },
+      {
+        "c0": {
+          "in": "config"
+        }
+      }
+    ]
+  ]
+}
