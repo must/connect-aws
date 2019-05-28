@@ -1,0 +1,59 @@
+{
+  "path": "/user/get",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "name"
+  ],
+  "out": [
+    "user"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 410,
+        "right": 652,
+        "top": 229,
+        "bottom": 359
+      },
+      "path": "/iam/user/get"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c0": {
+          "in": "name"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "user"
+        }
+      },
+      {
+        "out": "user"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "path": "/user/key/createAndDelete",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "userName"
+  ],
+  "out": [
+    "responseMetaData"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 353,
+        "right": 595,
+        "top": 84,
+        "bottom": 214
+      },
+      "path": "/user/key/create"
+    },
+    {
+      "tag": "c1",
+      "box": {
+        "left": 554,
+        "right": 796,
+        "top": 524,
+        "bottom": 680
+      },
+      "path": "/user/key/delete"
+    },
+    {
+      "tag": "e0",
+      "box": {
+        "left": 730,
+        "right": 902,
+        "top": 152,
+        "bottom": 230
+      },
+      "in": [
+        "accessKey"
+      ],
+      "expr": "accessKey.AccessKeyId"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c0": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c1": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "c1": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "c1": {
+          "out": "responseMetaData"
+        }
+      },
+      {
+        "out": "responseMetaData"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "accessKey"
+        }
+      },
+      {
+        "e0": {
+          "in": "accessKey"
+        }
+      }
+    ],
+    [
+      {
+        "e0": "result"
+      },
+      {
+        "c1": {
+          "in": "accessKeyId"
+        }
+      }
+    ]
+  ]
+}

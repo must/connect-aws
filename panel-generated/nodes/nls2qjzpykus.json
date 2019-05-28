@@ -1,0 +1,59 @@
+{
+  "path": "/user/create",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "name"
+  ],
+  "out": [
+    "user"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 417,
+        "right": 659,
+        "top": 205,
+        "bottom": 335
+      },
+      "path": "/iam/user/create"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "name"
+      },
+      {
+        "c0": {
+          "in": "name"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "user"
+        }
+      },
+      {
+        "out": "user"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "path": "/user/key/delete/",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "userName",
+    "accessKeyId"
+  ],
+  "out": [
+    "responseMetaData"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 368,
+        "right": 610,
+        "top": 194,
+        "bottom": 350
+      },
+      "path": "/iam/user/key/delete"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c0": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "in": "accessKeyId"
+      },
+      {
+        "c0": {
+          "in": "accessKeyId"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "responseMetaData"
+        }
+      },
+      {
+        "out": "responseMetaData"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "path": "/user/keys/delete",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "userName"
+  ],
+  "out": [],
+  "configs": [],
+  "control": [
+    "finished",
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 586,
+        "right": 828,
+        "top": 203,
+        "bottom": 333
+      },
+      "path": "#iterate"
+    },
+    {
+      "tag": "c1",
+      "box": {
+        "left": 256,
+        "right": 498,
+        "top": 85,
+        "bottom": 215
+      },
+      "path": "/user/key/list"
+    },
+    {
+      "tag": "e0",
+      "box": {
+        "left": 811,
+        "right": 983,
+        "top": 50,
+        "bottom": 128
+      },
+      "in": [
+        "step"
+      ],
+      "expr": "step"
+    },
+    {
+      "tag": "e1",
+      "box": {
+        "left": 873,
+        "right": 1045,
+        "top": 212,
+        "bottom": 430
+      },
+      "in": [
+        "step"
+      ],
+      "expr": "() => {\n  console.log(step.item);\n  console.log(\"typeof\");\n  console.log(typeof step.item);\n  console.log(step.item === undefined);\n  if(step.item !== undefined)\n    return step.item.AccessKeyId;\n  \n  return false;\n}"
+    },
+    {
+      "tag": "c2",
+      "box": {
+        "left": 653,
+        "right": 895,
+        "top": 543,
+        "bottom": 699
+      },
+      "path": "/user/key/delete"
+    },
+    {
+      "tag": "s0",
+      "box": {
+        "left": 1109,
+        "right": 1253,
+        "top": 314,
+        "bottom": 455
+      },
+      "cases": [
+        "false",
+        "..."
+      ]
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c1": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "c1": {
+          "out": "accessKeys"
+        }
+      },
+      {
+        "c0": {
+          "in": "target"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "step"
+        }
+      },
+      {
+        "e0": {
+          "in": "step"
+        }
+      }
+    ],
+    [
+      {
+        "e0": "result"
+      },
+      {
+        "c0": {
+          "in": "target"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "step"
+        }
+      },
+      {
+        "e1": {
+          "in": "step"
+        }
+      }
+    ],
+    [
+      {
+        "e1": "result"
+      },
+      {
+        "c2": {
+          "in": "accessKeyId"
+        }
+      }
+    ],
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c2": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "finished"
+        }
+      },
+      {
+        "out": "finished"
+      }
+    ],
+    [
+      {
+        "c2": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "e1": "result"
+      },
+      {
+        "s0": "target"
+      }
+    ],
+    [
+      {
+        "s0": {
+          "case": "..."
+        }
+      },
+      "c2"
+    ]
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "path": "/user/key/create",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "userName"
+  ],
+  "out": [
+    "accessKey"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 500,
+        "right": 742,
+        "top": 249,
+        "bottom": 379
+      },
+      "path": "/iam/user/key/create"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c0": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "accessKey"
+        }
+      },
+      {
+        "out": "accessKey"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}

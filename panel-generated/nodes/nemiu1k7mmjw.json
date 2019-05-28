@@ -1,0 +1,59 @@
+{
+  "path": "/user/key/list",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "userName"
+  ],
+  "out": [
+    "accessKeys"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 354,
+        "right": 596,
+        "top": 237,
+        "bottom": 367
+      },
+      "path": "/iam/user/key/list"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "userName"
+      },
+      {
+        "c0": {
+          "in": "userName"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "accessKeys"
+        }
+      },
+      {
+        "out": "accessKeys"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}
