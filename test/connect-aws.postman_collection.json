@@ -1,0 +1,797 @@
+{
+	"info": {
+		"_postman_id": "4d14a9c1-6dd0-4ca4-80ba-d03fe779cb44",
+		"name": "connect-aws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getToken",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/token/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"token",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createRepository",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/repository/create?repositoryName=test8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"repository",
+						"create"
+					],
+					"query": [
+						{
+							"key": "repositoryName",
+							"value": "test8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/create?name=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"create"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/get?name=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUserAccessKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/key/create?userName=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"key",
+						"create"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "listUserAccessKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/key/list?userName=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"key",
+						"list"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteUserAccessKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/key/delete?userName=test3&accessKeyId=AKIA2GYIMA3IMFYQR2KX",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"key",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "test3"
+						},
+						{
+							"key": "accessKeyId",
+							"value": "AKIA2GYIMA3IMFYQR2KX"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteUserAccessKeys",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/keys/delete?userName=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"keys",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "createDeleteUserAccessKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/key/createAndDelete?userName=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"key",
+						"createAndDelete"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "repositoriesDescribe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/repositories/describe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"repositories",
+						"describe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repositoryDescribe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/repository/describe?name=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"repository",
+						"describe"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repositoryDelete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/repository/delete?name=test5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"repository",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repositoryPolicySet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/repository/policy/set?name=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"repository",
+						"policy",
+						"set"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repositoryPolicyGet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/repository/policy/get?name=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"repository",
+						"policy",
+						"get"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "repositoryPolicyAllowUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/repository/policy/allowUserToPush?awsAccountId=701707847376&name=test3&user=test-user2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"repository",
+						"policy",
+						"allowUserToPush"
+					],
+					"query": [
+						{
+							"key": "awsAccountId",
+							"value": "701707847376"
+						},
+						{
+							"key": "name",
+							"value": "test3"
+						},
+						{
+							"key": "user",
+							"value": "test-user2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
