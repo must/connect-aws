@@ -22,7 +22,7 @@ platform.core.node({
   controlOutputs: ['error'],
 
   hints: {
-    node: 'Gets an authorization tocken using the optional <span class="hl-blue">params</span>.',
+    node: 'Gets an authorization token using the optional <span class="hl-blue">params</span>.',
 
     inputs: {
       params: 'the parameters as an object which includes optionally a registeryIds field.',
