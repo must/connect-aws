@@ -4,7 +4,7 @@
   "description": "the AWS SDK CONNECT platform package.",
   "main": ".",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "CONNECT_PRODUCTION_MODE=true nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
