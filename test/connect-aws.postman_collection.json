@@ -10,10 +10,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/token/create",
 					"protocol": "http",
@@ -34,10 +30,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/repository/create?repositoryName=test8",
 					"protocol": "http",
@@ -64,10 +56,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/user/create?name=test3",
 					"protocol": "http",
@@ -94,10 +82,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/user/get?name=test3",
 					"protocol": "http",
@@ -120,14 +104,68 @@
 			"response": []
 		},
 		{
+			"name": "getUserPolicy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/user/policy/get?arn=arn:aws:iam::701707847376:policy/AmazonEC2ContainerRegistryAuthorizationToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"policy",
+						"get"
+					],
+					"query": [
+						{
+							"key": "arn",
+							"value": "arn:aws:iam::701707847376:policy/AmazonEC2ContainerRegistryAuthorizationToken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "attachUserPolicy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/user/policy/attach?arn=arn:aws:iam::701707847376:policy/AmazonEC2ContainerRegistryAuthorizationToken&userName=test3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"policy",
+						"attach"
+					],
+					"query": [
+						{
+							"key": "arn",
+							"value": "arn:aws:iam::701707847376:policy/AmazonEC2ContainerRegistryAuthorizationToken"
+						},
+						{
+							"key": "userName",
+							"value": "test3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createUserAccessKey",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/user/key/create?userName=test3",
 					"protocol": "http",
@@ -154,10 +192,267 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
 						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "createUserPolicy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/user/policy/create?name=AmazonEC2ContainerRegistryAuthorizationToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"policy",
+						"create"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "AmazonEC2ContainerRegistryAuthorizationToken"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteUserPolicy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/user/policy/delete?arn=arn:aws:iam::701707847376:policy/AmazonEC2ContainerRegistryAuthorizationToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"policy",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "arn",
+							"value": "arn:aws:iam::701707847376:policy/AmazonEC2ContainerRegistryAuthorizationToken"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/user/key/create?userName=test3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"key",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userName",
+									"value": "test3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "190"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"be-7CvQgsHtB/8/LoTAPrFHI/KL0fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 May 2019 23:33:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessKey\": {\n        \"UserName\": \"test3\",\n        \"AccessKeyId\": \"AKIA2GYIMA3IMFYQR2KX\",\n        \"Status\": \"Active\",\n        \"SecretAccessKey\": \"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\",\n        \"CreateDate\": \"2019-05-27T23:33:30.000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "listUserPolicies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/user/policies/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"policies",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUserAccessKey",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "http://localhost:4000/user/key/create?userName=test3",
 							"protocol": "http",
@@ -221,10 +516,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/user/key/list?userName=test3",
 					"protocol": "http",
@@ -251,10 +542,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:4000/user/key/create?userName=test3",
 							"protocol": "http",
@@ -318,10 +605,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/user/key/delete?userName=test3&accessKeyId=AKIA2GYIMA3IMFYQR2KX",
 					"protocol": "http",
@@ -352,10 +635,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:4000/user/key/create?userName=test3",
 							"protocol": "http",
@@ -419,10 +698,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/user/keys/delete?userName=test3",
 					"protocol": "http",
@@ -449,10 +724,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:4000/user/key/create?userName=test3",
 							"protocol": "http",
@@ -516,10 +787,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/user/key/createAndDelete?userName=test3",
 					"protocol": "http",
@@ -546,10 +813,6 @@
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:4000/user/key/create?userName=test3",
 							"protocol": "http",
@@ -613,10 +876,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/repositories/describe",
 					"protocol": "http",
@@ -637,10 +896,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/repository/describe?name=test3",
 					"protocol": "http",
@@ -667,10 +922,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/repository/delete?name=test5",
 					"protocol": "http",
@@ -697,10 +948,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/repository/policy/set?name=test3",
 					"protocol": "http",
@@ -728,10 +975,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/repository/policy/get?name=test3",
 					"protocol": "http",
@@ -759,10 +1002,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "http://localhost:4000/repository/policy/allowUserToPush?awsAccountId=701707847376&name=test3&user=test-user2",
 					"protocol": "http",
@@ -793,5 +1032,6 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

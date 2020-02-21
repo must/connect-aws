@@ -31,6 +31,7 @@ let configFunction = function(config) {
   accessors[key] = (function() {
     let ecr = null;
     let iam = null;
+    let s3 = null;
 
     let lConfig = config; // Get a copy of the config
       
@@ -47,6 +48,13 @@ let configFunction = function(config) {
          iam = new AWS.IAM(Object.assign(lConfig, { apiVersion: '2010-05-08' }));
 
        return iam;
+      },
+
+      get s3() {
+        if(s3 === null)
+          s3 = new AWS.S3(Object.assign(lConfig, { apiVersion: '2006-03-01' }));
+
+        return s3;
       }
     }
   })();

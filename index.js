@@ -58,6 +58,8 @@ module.exports.platform = {
         'IAM/user/policy/create/iam/getAuthorizationToken',
         'IAM/user/policy/delete',
         'IAM/user/policies/list',
+
+        's3/createPresignedPost',
        ]
     },
     /**
@@ -94,6 +96,8 @@ module.exports.platform = {
       '/iam/user/policy/create/iam/getAuthorizationToken': '/aws/IAM/user/policy/create/iam/getAuthorizationToken',
       '/iam/user/policy/delete': '/aws/IAM/user/policy/delete',
       '/iam/user/policies/list': '/aws/IAM/user/policies/list',
+
+      '/s3/createPresignedPost': '/aws/S3/createPresignedPost',
     }
   },
   hints: {

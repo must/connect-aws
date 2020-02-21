@@ -1,0 +1,92 @@
+{
+  "path": "/s3/createsignedpost",
+  "method": "POST",
+  "public": true,
+  "in": [
+    "bucket",
+    "expires",
+    "conditions",
+    "fields"
+  ],
+  "out": [
+    "data"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 198,
+        "right": 440,
+        "top": 228,
+        "bottom": 435
+      },
+      "path": "/aws/S3/createPresignedPost"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "bucket"
+      },
+      {
+        "c0": {
+          "in": "bucket"
+        }
+      }
+    ],
+    [
+      {
+        "in": "expires"
+      },
+      {
+        "c0": {
+          "in": "expires"
+        }
+      }
+    ],
+    [
+      {
+        "in": "conditions"
+      },
+      {
+        "c0": {
+          "in": "conditions"
+        }
+      }
+    ],
+    [
+      {
+        "in": "fields"
+      },
+      {
+        "c0": {
+          "in": "fields"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "data"
+        }
+      },
+      {
+        "out": "data"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ]
+  ]
+}

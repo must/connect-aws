@@ -1,5 +1,5 @@
 {
-  "path": "/token/create",
+  "path": "/ecr/token/create",
   "method": "GET",
   "public": true,
   "in": [],

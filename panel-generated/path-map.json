@@ -18,5 +18,6 @@
   "/user/policy/create": "nete3ggtf31",
   "/user/policy/get": "nklplf0nww",
   "/user/policy/attach": "n69dr3xwtygv",
-  "/token/create": "n0uti98j6qusm"
+  "/ecr/token/create": "n0uti98j6qusm",
+  "/s3/createsignedpost": "nlqb586sxhrl"
 }
