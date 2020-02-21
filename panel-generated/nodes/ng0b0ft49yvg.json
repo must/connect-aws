@@ -1,0 +1,115 @@
+{
+  "path": "/s3/getsignedurl",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "bucket",
+    "key",
+    "expires",
+    "operation"
+  ],
+  "out": [
+    "url"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 760,
+        "right": 1002,
+        "top": 204,
+        "bottom": 411
+      },
+      "path": "/aws/S3/getSignedUrl"
+    },
+    {
+      "tag": "e0",
+      "box": {
+        "left": 364,
+        "right": 536,
+        "top": 411,
+        "bottom": 489
+      },
+      "in": [
+        "expires"
+      ],
+      "expr": "parseInt(expires)"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "bucket"
+      },
+      {
+        "c0": {
+          "in": "bucket"
+        }
+      }
+    ],
+    [
+      {
+        "in": "operation"
+      },
+      {
+        "c0": {
+          "in": "operation"
+        }
+      }
+    ],
+    [
+      {
+        "in": "key"
+      },
+      {
+        "c0": {
+          "in": "key"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "url"
+        }
+      },
+      {
+        "out": "url"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "in": "expires"
+      },
+      {
+        "e0": {
+          "in": "expires"
+        }
+      }
+    ],
+    [
+      {
+        "e0": "result"
+      },
+      {
+        "c0": {
+          "in": "expires"
+        }
+      }
+    ]
+  ]
+}

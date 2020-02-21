@@ -1,0 +1,90 @@
+{
+  "path": "/s3/headobject",
+  "method": "GET",
+  "public": true,
+  "in": [
+    "bucket",
+    "key"
+  ],
+  "out": [
+    "data"
+  ],
+  "configs": [],
+  "control": [
+    "error"
+  ],
+  "nodes": [
+    {
+      "tag": "c0",
+      "box": {
+        "left": 651,
+        "right": 893,
+        "top": 242,
+        "bottom": 424
+      },
+      "path": "/aws/S3/headObject"
+    },
+    {
+      "tag": "v0",
+      "box": {
+        "left": 320,
+        "right": 492,
+        "top": 377,
+        "bottom": 377
+      },
+      "expr": "{}"
+    }
+  ],
+  "links": [
+    [
+      {
+        "in": "bucket"
+      },
+      {
+        "c0": {
+          "in": "bucket"
+        }
+      }
+    ],
+    [
+      {
+        "in": "key"
+      },
+      {
+        "c0": {
+          "in": "key"
+        }
+      }
+    ],
+    [
+      {
+        "c0": {
+          "out": "data"
+        }
+      },
+      {
+        "out": "data"
+      }
+    ],
+    [
+      {
+        "c0": {
+          "control": "error"
+        }
+      },
+      {
+        "out": "error"
+      }
+    ],
+    [
+      {
+        "v0": "result"
+      },
+      {
+        "c0": {
+          "in": "extra"
+        }
+      }
+    ]
+  ]
+}

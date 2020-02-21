@@ -60,6 +60,8 @@ module.exports.platform = {
         'IAM/user/policies/list',
 
         's3/createPresignedPost',
+        's3/headObject',
+        's3/getSignedUrl',
        ]
     },
     /**
@@ -98,6 +100,8 @@ module.exports.platform = {
       '/iam/user/policies/list': '/aws/IAM/user/policies/list',
 
       '/s3/createPresignedPost': '/aws/S3/createPresignedPost',
+      '/s3/headObject': '/aws/S3/headObject',
+      '/s3/getSignedUrl': '/aws/S3/getSignedUrl',
     }
   },
   hints: {

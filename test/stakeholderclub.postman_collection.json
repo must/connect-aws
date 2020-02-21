@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "33c6f6d4-b0bd-476c-bc85-bd2f38554769",
+		"name": "stakeholderclub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Request email",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8adfe418-1881-451a-aa1e-4df08a272500",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/request?email=mustapha3892@gmail.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"request"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "mustapha3892@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/enticate?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODE3Nzg0Njl9.Se3WQnL2ok1pTKAvAdjcb4X22bKhU5TyZ9w9Ek4FR5Q",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"enticate"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODE3Nzg0Njl9.Se3WQnL2ok1pTKAvAdjcb4X22bKhU5TyZ9w9Ek4FR5Q"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate investor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/enticate?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGNvbm5lY3QtcGxhdGZvcm0uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxMjY4MTc5fQ.GUz321V3QPBqm6WIm3MZv15pYxUer0jvkQtjLOtDHvo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"enticate"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGNvbm5lY3QtcGxhdGZvcm0uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxMjY4MTc5fQ.GUz321V3QPBqm6WIm3MZv15pYxUer0jvkQtjLOtDHvo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate not found user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/enticate?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGJlbmNoYWFiZW4uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxNjA0MzQ4fQ.2jFMpaY90P0cyDwqB-GKsuFp0HW7WSuTxPRi-XsdiyM",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"enticate"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGJlbmNoYWFiZW4uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxNjA0MzQ4fQ.2jFMpaY90P0cyDwqB-GKsuFp0HW7WSuTxPRi-XsdiyM"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "auth/create",
+			"item": [
+				{
+					"name": "Create company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/company/create?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODE3Nzg0Njl9.Se3WQnL2ok1pTKAvAdjcb4X22bKhU5TyZ9w9Ek4FR5Q&name=linkedin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"company",
+								"create"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODE3Nzg0Njl9.Se3WQnL2ok1pTKAvAdjcb4X22bKhU5TyZ9w9Ek4FR5Q"
+								},
+								{
+									"key": "name",
+									"value": "linkedin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create investor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/investor/create?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGNvbm5lY3QtcGxhdGZvcm0uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxMjY4MTc5fQ.GUz321V3QPBqm6WIm3MZv15pYxUer0jvkQtjLOtDHvo&first_name=mustapha&last_name=benchaaben",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"investor",
+								"create"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGNvbm5lY3QtcGxhdGZvcm0uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxMjY4MTc5fQ.GUz321V3QPBqm6WIm3MZv15pYxUer0jvkQtjLOtDHvo"
+								},
+								{
+									"key": "first_name",
+									"value": "mustapha"
+								},
+								{
+									"key": "last_name",
+									"value": "benchaaben"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "Link preview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/link/preview?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGNvbm5lY3QtcGxhdGZvcm0uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxMjY4MTc5fQ.GUz321V3QPBqm6WIm3MZv15pYxUer0jvkQtjLOtDHvo&url=https://connect-platform.com",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"link",
+								"preview"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhQGNvbm5lY3QtcGxhdGZvcm0uY29tIiwiZXhwaXJlc0luIjoiMzBkIiwiaWF0IjoxNTgxMjY4MTc5fQ.GUz321V3QPBqm6WIm3MZv15pYxUer0jvkQtjLOtDHvo"
+								},
+								{
+									"key": "url",
+									"value": "https://connect-platform.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"link\": {\n\t\t\"has\": true,\n\t\t\"url\": \"https://connect-platform.com/\",\n\t\t\"image\": \"https://connect-platform.com/svg/logo.svg\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/create?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODEyNjA5NjN9.znGqNoxy4Cr0Sww1MERsql0OLbuoPrC9iXnhR-H39rU&content=test post",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"create"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODEyNjA5NjN9.znGqNoxy4Cr0Sww1MERsql0OLbuoPrC9iXnhR-H39rU"
+								},
+								{
+									"key": "content",
+									"value": "test post"
+								},
+								{
+									"key": "hasLink",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Posts for user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"link\": {\n\t\t\"has\": true,\n\t\t\"url\": \"https://connect-platform.com/\",\n\t\t\"image\": \"https://connect-platform.com/svg/logo.svg\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/get?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODEyNjA5NjN9.znGqNoxy4Cr0Sww1MERsql0OLbuoPrC9iXnhR-H39rU&user_id=ZlAzNXYDgeAyxoe7FvKp&last_post_id=start&n=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"get"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODEyNjA5NjN9.znGqNoxy4Cr0Sww1MERsql0OLbuoPrC9iXnhR-H39rU"
+								},
+								{
+									"key": "user_id",
+									"value": "ZlAzNXYDgeAyxoe7FvKp"
+								},
+								{
+									"key": "last_post_id",
+									"value": "start"
+								},
+								{
+									"key": "last_post_id",
+									"value": "GX5GLBiNK060q0MbOfIl",
+									"disabled": true
+								},
+								{
+									"key": "n",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"link\": {\n\t\t\"has\": true,\n\t\t\"url\": \"https://connect-platform.com/\",\n\t\t\"image\": \"https://connect-platform.com/svg/logo.svg\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/post/get?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODE3Nzg0Njl9.Se3WQnL2ok1pTKAvAdjcb4X22bKhU5TyZ9w9Ek4FR5Q&post_id=RroAIgyWWbGr8B8inOpr",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"post",
+								"get"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11c3RhcGhhMzg5MkBnbWFpbC5jb20iLCJleHBpcmVzSW4iOiIzMGQiLCJpYXQiOjE1ODE3Nzg0Njl9.Se3WQnL2ok1pTKAvAdjcb4X22bKhU5TyZ9w9Ek4FR5Q"
+								},
+								{
+									"key": "post_id",
+									"value": "RroAIgyWWbGr8B8inOpr"
+								},
+								{
+									"key": "hasLink",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "pic/uplink",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/pic/uplink",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"pic",
+								"uplink"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
